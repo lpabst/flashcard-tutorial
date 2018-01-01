@@ -1,28 +1,100 @@
 .App {
-  text-align: center;
+  width: 100%;
+  position: relative;
+  background: #eee;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.desktop_header{
+  width: 100%;
+  height: 50px;
+  background: #fff;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.timeline_container{
+  width: 600px;
+  min-height: 100vh;
+  margin: 10px auto;
+  background: #fff;
+  position: relative;
 }
 
-.App-title {
-  font-size: 1.5em;
+.timeline_user_tweet{
+  width: 100%;
+  min-height: 60px;
+  background: #E8F5FD;
+  border-bottom: 0.5px solid #eee;
+  padding: 12px 15px 10px 70px;
 }
 
-.App-intro {
-  font-size: large;
+.timeline_thumbnail{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  left: 30px;
+  top: 15px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.timeline_input{
+  width: 510px;
+  height: 30px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  padding-left: 10px;
 }
+
+.timeline_tweets_wrapper{
+  width: 100%;
+  position: relative;
+}
+
+.tweet{
+  width: 100%;
+  position: relative;
+  padding: 10px 15px 0px 75px;
+  text-align: top;
+  border-bottom: 0.5px solid #eee;
+}
+
+.tweet p{
+  display: inline-block;
+  margin: 0px 3px 0px 0px;
+}
+
+.f12{
+  font-size: 12px;
+}
+
+.tweet_user_thumbnail{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  left: 15px;
+  top: 10px;
+}
+
+.tweet_username{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.tweet_caption{
+  font-size: 14px;
+  line-height: 20px;
+  width: 510px;
+}
+
+.tweet_controls{
+  width: 510px;
+  height: 30px;
+  margin-top: 20px;
+}
+
+.tweet_control{
+  margin-right: 50px;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+}
+
