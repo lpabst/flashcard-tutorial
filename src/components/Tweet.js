@@ -4,11 +4,11 @@ class Tweet extends Component{
     render(){
         return(
             <div className='tweet'>
-              <img src='https://pbs.twimg.com/profile_images/942784892882112513/qV4xB0I3_bigger.jpg' className='tweet_user_thumbnail' alt='tweet thumbnail' />
-              <p className='tweet_username'>The New York Times</p>
-              <p className='f12'>@nytimes</p>
-              <p className='f12'>20m</p>
-              <p className='tweet_caption'>Self-improvement is great. But relaxing and going about things at your own pace is pretty great, too.</p>
+              <img src={this.props.imgSrc} className='tweet_user_thumbnail' alt='tweet thumbnail' />
+              <p className='tweet_username'>{this.props.username}</p>
+              <p className='f12'>{this.props.twitterHandle}</p>
+              <p className='f12'>{this.props.timeSincePosted}</p>
+              <p className='tweet_caption'>{this.props.caption}</p>
               <div className='tweet_controls'>
                 <img src='https://pbs.twimg.com/media/CWX5igcWoAEsUxM.png' alt='tweet comment' className='tweet_controls_comment tweet_control' />
                 <img src='https://www.shareicon.net/download/2016/04/20/752568_arrows_512x512.png' alt='tweet arrows' className='tweet_control' />

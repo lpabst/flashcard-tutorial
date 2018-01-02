@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import Tweet from './components/Tweet.js';
+import Header from './components/Header.js';
 
 class App extends Component {
   constructor(props){
@@ -16,8 +16,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <header className='desktop_header'>
-        </header>
+        <Header />
 
         <div className='timeline_container'>
 
@@ -28,11 +27,21 @@ class App extends Component {
 
           <div className='timeline_tweets_wrapper'>
 
-            <Tweet />
-            <Tweet />
-            <Tweet />
-            <Tweet />
-            <Tweet />
+            <Tweet 
+            imgSrc='https://pbs.twimg.com/profile_images/942784892882112513/qV4xB0I3_bigger.jpg'
+            username='The New York Times' 
+            caption='Self-improvement is great. But relaxing and going about things at your own pace is pretty great, too.'
+            twitterHandle='@nytimes'
+            timeSincePosted='20m' />
+
+            <Tweet 
+            imgSrc='https://pbs.twimg.com/profile_images/188302352/nasalogo_twitter_bigger.jpg'
+            username='NASA' 
+            caption='The supermoon is here! Be sure to bundle up then lead your “pack” outside to view the #WolfMoon 🐺, the most super of the three supermoons this winter!'
+            twitterHandle='@NASA'
+            timeSincePosted='3h' />
+
+
 
             
 
