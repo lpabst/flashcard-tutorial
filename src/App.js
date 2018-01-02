@@ -8,6 +8,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
+      userInput: '',
       tweets: [
         {
           imgSrc: 'https://pbs.twimg.com/profile_images/942784892882112513/qV4xB0I3_bigger.jpg',
@@ -25,6 +26,15 @@ class App extends Component {
         }
       ]
     }
+
+    this.updateUserInput = this.updateUserInput.bind(this);
+  }
+
+  updateUserInput(event){
+    let input = event.target.value;
+    this.setState({
+      userInput: input
+    });
   }
 
   render() {
@@ -37,7 +47,7 @@ class App extends Component {
 
           <div className='timeline_user_tweet'>
             <img src='https://pbs.twimg.com/profile_images/638872319507566592/P7f8VvkU_normal.jpg' alt='user thumbnail' className='timeline_thumbnail' />
-            <input className='timeline_input' placeholder="What's Happening?" />
+            <input className='timeline_input' placeholder="What's Happening?" onChange={this.updateUserInput} value={this.state.userInput} />
           </div>
 
           <div className='timeline_tweets_wrapper'>
