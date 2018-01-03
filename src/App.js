@@ -9,6 +9,7 @@ class App extends Component {
     super(props);
     this.state = {
       userInput: '',
+      tweetBoxOpen: false,
       tweets: [
         {
           imgSrc: 'https://pbs.twimg.com/profile_images/942784892882112513/qV4xB0I3_bigger.jpg',
@@ -37,7 +38,20 @@ class App extends Component {
     });
   }
 
+  handleTweetBoxFocus(hasFocus){
+    if (hasFocus || this.state.userInput){
+      this.setState({
+        tweetBoxOpen: true
+      })
+    }else{
+      this.setState({
+        tweetBoxOpen: false
+      })
+    }
+  }
+
   render() {
+    let tweetBoxHeight = this.state.tweetBoxOpen ? '60px' : '22px';
     return (
       <div className="App">
 
@@ -47,7 +61,10 @@ class App extends Component {
 
           <div className='timeline_user_tweet'>
             <img src='https://pbs.twimg.com/profile_images/638872319507566592/P7f8VvkU_normal.jpg' alt='user thumbnail' className='timeline_thumbnail' />
-            <input className='timeline_input' placeholder="What's Happening?" onChange={this.updateUserInput} value={this.state.userInput} />
+            <textarea className='timeline_input' placeholder="What's Happening?" onChange={this.updateUserInput} value={this.state.userInput} style={{height: tweetBoxHeight}} onFocus={() => this.handleTweetBoxFocus(true)} onBlur={() => this.handleTweetBoxFocus(false)} />
+            {
+              this.state.tweetBoxOpen ? <button>Tweet</button> : null
+            }
           </div>
 
           <div className='timeline_tweets_wrapper'>
