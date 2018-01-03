@@ -51,6 +51,11 @@
   position: relative;
 }
 
+.location_icon{
+  width: 18px;
+  height: auto;
+}
+
 .tweet_btn{
   width: 75px;
   height: 32px;
