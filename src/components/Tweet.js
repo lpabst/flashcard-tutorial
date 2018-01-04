@@ -1,13 +1,40 @@
 import React, {Component} from 'react';
 
 class Tweet extends Component{
+    constructor(props){
+        super(props);
+        this.state={}
+    }
+
+    getTimeSincePosted(date){
+        let today = new Date();
+        let oldDate = new Date(date);
+        let todaySec = Math.floor(today.getTime() / 1000);
+        let oldDateSec = Math.floor(oldDate.getTime() / 1000);
+        let diff = todaySec - oldDateSec;
+
+        let min = 60;
+        let hour = 60*60;
+        let day = 60*60*24;
+
+        if (diff < min){
+            return 'now';
+        }else if(diff < hour){
+            return Math.floor(diff / min) + 'm';
+        }else if (diff < day){
+            return Math.floor(diff / hour) + 'h';
+        }else{
+            return Math.floor(diff / day) + 'd';
+        }
+    }
+
     render(){
         return(
             <div className='tweet'>
               <img src={this.props.imgSrc} className='tweet_user_thumbnail' alt='tweet thumbnail' />
               <p className='tweet_username'>{this.props.username}</p>
               <p className='f12'>{this.props.twitterHandle}</p>
-              <p className='f12'>{this.props.timeSincePosted}</p>
+              <p className='f12'>{this.getTimeSincePosted(this.props.datePosted)}</p>
               <p className='tweet_caption'>{this.props.caption}</p>
               <div className='tweet_controls'>
                 <img src='https://pbs.twimg.com/media/CWX5igcWoAEsUxM.png' alt='tweet comment' className='tweet_controls_comment tweet_control' />

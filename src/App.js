@@ -19,14 +19,14 @@ class App extends Component {
           username: 'The New York Times',
           caption: 'Self-improvement is great. But relaxing and going about things at your own pace is pretty great, too.',
           twitterHandle: '@nytimes',
-          timeSincePosted: '20m'
+          datePosted: 'Wed Jan 03 2018 20:30:31'
         },
         {
           imgSrc: 'https://pbs.twimg.com/profile_images/188302352/nasalogo_twitter_bigger.jpg',
           username: 'NASA',
           caption: 'The supermoon is here! Be sure to bundle up then lead your “pack” outside to view the #WolfMoon 🐺, the most super of the three supermoons this winter!',
           twitterHandle: '@NASA',
-          timeSincePosted: '3h'
+          datePosted: 'Wed Dec 13 2017 23:02:31'
         }
       ]
     }
@@ -61,7 +61,7 @@ class App extends Component {
       username: this.state.username,
       twitterHandle: this.state.twitterHandle,
       caption: this.state.userInput,
-      timeSincePosted: 'now'
+      datePosted: new Date()
     })
     this.setState({
       tweets: arr,
@@ -92,7 +92,7 @@ class App extends Component {
 
             {
               this.state.tweets.map( (item, i) => {
-                return <Tweet imgSrc={item.imgSrc} caption={item.caption} username={item.username} twitterHandle={item.twitterHandle} timeSincePosted={item.timeSincePosted} />
+                return <Tweet key={i} imgSrc={item.imgSrc} caption={item.caption} username={item.username} twitterHandle={item.twitterHandle} datePosted={item.datePosted} />
               })
             }
 
