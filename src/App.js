@@ -10,6 +10,9 @@ class App extends Component {
     this.state = {
       userInput: '',
       tweetBoxOpen: false,
+      userThumbnail: 'https://pbs.twimg.com/profile_images/638872319507566592/P7f8VvkU_normal.jpg',
+      username: 'LPabst-Logan',
+      twitterHandle: 'loren_brigham',
       tweets: [
         {
           imgSrc: 'https://pbs.twimg.com/profile_images/942784892882112513/qV4xB0I3_bigger.jpg',
@@ -29,6 +32,7 @@ class App extends Component {
     }
 
     this.updateUserInput = this.updateUserInput.bind(this);
+    this.postTweet = this.postTweet.bind(this);
   }
 
   updateUserInput(event){
@@ -50,6 +54,22 @@ class App extends Component {
     }
   }
 
+  postTweet(){
+    let arr = this.state.tweets;
+    arr.unshift({
+      imgSrc: this.state.userThumbnail,
+      username: this.state.username,
+      twitterHandle: this.state.twitterHandle,
+      caption: this.state.userInput,
+      timeSincePosted: 'now'
+    })
+    this.setState({
+      tweets: arr,
+      userInput: '',
+      tweetBoxOpen: false
+    })
+  }
+
   render() {
     let tweetBoxHeight = this.state.tweetBoxOpen ? '60px' : '22px';
     return (
@@ -62,8 +82,9 @@ class App extends Component {
           <div className='timeline_user_tweet'>
             <img src='https://pbs.twimg.com/profile_images/638872319507566592/P7f8VvkU_normal.jpg' alt='user thumbnail' className='timeline_thumbnail' />
             <textarea className='timeline_input' placeholder="What's Happening?" onChange={this.updateUserInput} value={this.state.userInput} style={{height: tweetBoxHeight}} onFocus={() => this.handleTweetBoxFocus(true)} onBlur={() => this.handleTweetBoxFocus(false)} />
+
             {
-              this.state.tweetBoxOpen ? <button>Tweet</button> : null
+              this.state.tweetBoxOpen ? <button onClick={this.postTweet}>Tweet</button> : null
             }
           </div>
 
