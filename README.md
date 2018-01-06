@@ -1,3 +1,3 @@
-# Create-React-App Seed
+# Flashcard Tutorial
 
-This is the project I'll use for my udemy course
+This is the repo for the flashcard app I am building in my Udemy course
